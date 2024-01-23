@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import NovyUkol from './NovyUkol';
 
-export default function Ukolnincek( {pridejUkol} ) {
+export default function Ukolnincek() {
 
     const [seznamUkolu, nastavSeznamUkolu] = useState(['Novy ukol', 'dalsi ukol'])
 
@@ -13,7 +13,13 @@ export default function Ukolnincek( {pridejUkol} ) {
         <>
         <NovyUkol pridejUkol={pridejUkol}/>
         <br></br>
-        {seznamUkolu}
+        {seznamUkolu.map((ukol) => (
+            <>
+            <span>{ukol}</span>
+            <br/>
+            </>
+        ))
+        }
         <button onClick={() => pridejUkol(", novy ukol")}>Přidej náhodný úkol</button>
         </>
     )
